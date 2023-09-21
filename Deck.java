@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Random;
 import java.util.ArrayList;
 
 /**
@@ -44,7 +45,17 @@ public class Deck
      * Shuffles the cards in the deck
      */
     public void shuffle() {
-        // To be written
+        System.out.println(this.cards.get(0).getRank());
+        Random rand= new Random();
+        
+        for(int i = 0; i < this.cards.size(); i++){
+            int rand_int = rand.nextInt(this.cards.size());
+            Card saved_card = this.cards.get(rand_int);
+            
+            this.cards.set(rand_int, this.cards.get(i));
+            this.cards.set(i, saved_card);
+        }
+        System.out.println(this.cards.get(0).getRank());
     }
     
     /**

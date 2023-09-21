@@ -45,7 +45,6 @@ public class Deck
      * Shuffles the cards in the deck
      */
     public void shuffle() {
-        System.out.println(this.cards.get(0).getRank());
         Random rand= new Random();
         
         for(int i = 0; i < this.cards.size(); i++){
@@ -55,7 +54,6 @@ public class Deck
             this.cards.set(rand_int, this.cards.get(i));
             this.cards.set(i, saved_card);
         }
-        System.out.println(this.cards.get(0).getRank());
     }
     
     /**

@@ -78,8 +78,11 @@ public class Deck
      * @returns The top card of the deck (at cards index 0)
      */
     public Card dealCardFromDeck() {
-        // To be written 
-        return null;
+        System.out.println(this.cards.get(0).getRank());
+        Card card = this.cards.get(0);
+        this.cards.remove(0);
+        System.out.println(this.cards.get(0).getRank());
+        return card;
     }
     
     /**

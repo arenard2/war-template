@@ -17,7 +17,10 @@ public class War
         // Initializations here...
         Deck deck = new Deck();
         deck.initializeNewDeck();
+        
+        //tests
         deck.shuffle();
+        deck.dealCardFromDeck();
         
         // ...then run the event loop
         this.runEventLoop();

@@ -7,6 +7,8 @@
  */
 public class War
 {
+    Player a;
+    Player b;
     /**
      * Constructor for the game
      * Include your initialization here -- card decks, shuffling, etc
@@ -19,11 +21,8 @@ public class War
         deck.initializeNewDeck();
         Deck[] halves = deck.dealDeck();
         
-        Player a = new Player("a", halves[0]);
-        Player b = new Player("b", halves[1]);
-        //tests
-        deck.shuffle();
-        deck.dealCardFromDeck();
+        a = new Player("a", halves[0]);
+        b = new Player("b", halves[1]);
         
         // ...then run the event loop
         this.runEventLoop();

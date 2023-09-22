@@ -88,7 +88,7 @@ public class Deck
      * @param cardToAdd: Card to add to this deck
      */
     public void addCardToDeck(Card cardToAdd) {
-        // To be written
+        this.cards.add(cardToAdd);
     }
     
 }

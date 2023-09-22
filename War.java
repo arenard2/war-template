@@ -17,9 +17,10 @@ public class War
         // Initializations here...
         Deck deck = new Deck();
         deck.initializeNewDeck();
+        Deck[] halves = deck.dealDeck();
         
-        Player a = new Player();
-        Player b = new Player();
+        Player a = new Player("a", halves[0]);
+        Player b = new Player("b", halves[1]);
         //tests
         deck.shuffle();
         deck.dealCardFromDeck();

@@ -8,13 +8,19 @@
 public class Player
 {
     // instance variables - replace the example below with your own
-    private Deck deck;
+    public Deck deck;
+    public Deck winPile;
+    public Deck frontDeck;
+    public String name;
 
     /**
      * Constructor for objects of class Player
      */
-    public Player()
+    public Player(String _name, Deck _deck)
     {
-        // initialise instance variables
+        deck = _deck;
+        winPile = new Deck();
+        frontDeck = new Deck();
+        name = _name;
     }
 }

@@ -18,6 +18,8 @@ public class War
         Deck deck = new Deck();
         deck.initializeNewDeck();
         
+        Player a = new Player();
+        Player b = new Player();
         //tests
         deck.shuffle();
         deck.dealCardFromDeck();

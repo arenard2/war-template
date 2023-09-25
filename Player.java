@@ -23,4 +23,19 @@ public class Player
         frontDeck = new Deck();
         name = _name;
     }
+    
+    public void dealToFrontDeck(){
+        frontDeck.addCardToDeck(deck.dealCardFromDeck());
+    }
+    
+    public void collect(Deck loserPile){
+        for(int i = 0; i < winPile.getDeckSize(); i++){
+            deck.addCardToDeck(winPile.getCardAt(i));
+        }
+        winPile.clearDeck();
+        for(int i = 0; i < loserPile.getDeckSize(); i++){
+            deck.addCardToDeck(loserPile.getCardAt(i));
+        }
+        
+    }
 }

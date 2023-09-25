@@ -91,4 +91,11 @@ public class Deck
         this.cards.add(cardToAdd);
     }
     
+    public Card getCardAt(int i){
+        return this.cards.get(i);
+    }
+    
+    public void clearDeck(){
+        this.cards = new ArrayList<Card>();
+    }
 }

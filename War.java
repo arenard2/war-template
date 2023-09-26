@@ -47,6 +47,7 @@ public class War
         }
     }
     
+    //returns a if a lost, b if b lost, ab if both lost, n to continue
     public String tie(){
         if(!(this.a.getAmountOfCards() > 3) && !(this.b.getAmountOfCards() > 3)){
             return "ab";

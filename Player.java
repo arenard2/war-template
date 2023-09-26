@@ -8,32 +8,48 @@
 public class Player
 {
     // instance variables - replace the example below with your own
-    public Deck deck;
-    public Deck frontDeck;
-    public String name;
+    private Deck deck;
+    private Deck frontDeck;
+    private String name;
 
     /**
      * Constructor for objects of class Player
      */
     public Player(String _name, Deck _deck)
     {
-        deck = _deck;
-        frontDeck = new Deck();
-        name = _name;
+        this.deck = _deck;
+        this.frontDeck = new Deck();
+        this.name = _name;
     }
     
     public void dealToFrontDeck(){
-        frontDeck.addCardToDeck(deck.dealCardFromDeck());
+        this.frontDeck.addCardToDeck(deck.dealCardFromDeck());
     }
     
     public void collect(Deck loserPile){
         for(int i = 0; i < frontDeck.getDeckSize(); i++){
-            deck.addCardToDeck(frontDeck.getCardAt(i));
+            this.deck.addCardToDeck(frontDeck.getCardAt(i));
         }
-        frontDeck.clearDeck();
+        this.frontDeck.clearDeck();
         for(int i = 0; i < loserPile.getDeckSize(); i++){
-            deck.addCardToDeck(loserPile.getCardAt(i));
+            this.deck.addCardToDeck(loserPile.getCardAt(i));
         }
         
+    }
+    
+    public void clearFrontDeck(){
+        this.frontDeck.clearDeck();
+    }
+    
+    public Deck getFrontDeck(){
+        return this.frontDeck;
+    }
+    
+    public int getLastCardRankInFrontDeck(){
+        return this.frontDeck.getLastCard().getRank();
+    }
+    
+    public int getAmountOfCards(){
+        return this.deck.getDeckSize();
     }
 }

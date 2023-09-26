@@ -7,8 +7,8 @@
  */
 public class War
 {
-    Player a;
-    Player b;
+    private Player a;
+    private Player b;
     /**
      * Constructor for the game
      * Include your initialization here -- card decks, shuffling, etc
@@ -33,7 +33,42 @@ public class War
      * from the War flowchart you created for this game
      */
     public void runEventLoop() {
+        for(int i = 0; i < 300; i++){
+            this.a.dealToFrontDeck();
+            this.b.dealToFrontDeck();
+            
+            if(this.a.getLastCardRankInFrontDeck() > this.b.getLastCardRankInFrontDeck()){
+                
+            } else if(this.a.getLastCardRankInFrontDeck() < this.b.getLastCardRankInFrontDeck()){
+                
+            } else {
+                String tied = tie();
+            }
+        }
+    }
+    
+    public String tie(){
+        if(!(this.a.getAmountOfCards() > 3) && !(this.b.getAmountOfCards() > 3)){
+            return "ab";
+        } else if(!(this.a.getAmountOfCards() > 3)){
+            return "a";
+        } else if(!(this.a.getAmountOfCards() > 3)){
+            return "b";
+        }
         
+        for(int j = 0; j < 3; j++){
+            this.a.dealToFrontDeck();
+            this.b.dealToFrontDeck();
+        }
+            
+        if(this.a.getLastCardRankInFrontDeck() > this.b.getLastCardRankInFrontDeck()){
+                
+        } else if(this.a.getLastCardRankInFrontDeck() < this.b.getLastCardRankInFrontDeck()){
+                
+        } else {
+            String tied = tie();
+        }
+        return "n";
     }
     
     /**

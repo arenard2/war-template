@@ -98,4 +98,8 @@ public class Deck
     public void clearDeck(){
         this.cards = new ArrayList<Card>();
     }
+    
+    public Card getLastCard(){
+        return this.cards.get(this.cards.size()-1);
+    }
 }

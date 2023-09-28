@@ -19,6 +19,7 @@ public class War
         // Initializations here...
         Deck deck = new Deck();
         deck.initializeNewDeck();
+        deck.shuffle();
         Deck[] halves = deck.dealDeck();
         
         a = new Player("a", halves[0]);
@@ -43,6 +44,16 @@ public class War
                 
             } else {
                 String tied = tie();
+                if(tied == "a"){
+                    System.out.println("Player b won!");
+                    break;
+                }else if(tied == "a"){
+                    System.out.println("Player a won!");
+                    break;
+                } else if(tied == "ab"){
+                    System.out.println("Tie!.");
+                    break;
+                }
             }
         }
     }
@@ -67,7 +78,7 @@ public class War
         } else if(this.a.getLastCardRankInFrontDeck() < this.b.getLastCardRankInFrontDeck()){
                 
         } else {
-            String tied = tie();
+            return tie();
         }
         return "n";
     }

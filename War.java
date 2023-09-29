@@ -41,14 +41,15 @@ public class War
             
             System.out.println("Player A: " + this.a.getLastCardFaceInFrontDeck() + " of " + this.a.getLastCardSuitInFrontDeck());
             System.out.println("Player B: " + this.b.getLastCardFaceInFrontDeck() + " of " + this.b.getLastCardSuitInFrontDeck());
-            System.out.println("");
             
             if(this.a.getLastCardRankInFrontDeck() > this.b.getLastCardRankInFrontDeck()){
                 this.a.collect(this.b.getFrontDeck());
                 this.b.clearFrontDeck();
+                System.out.println("Player A gets Cards.");
             } else if(this.a.getLastCardRankInFrontDeck() < this.b.getLastCardRankInFrontDeck()){
                 this.b.collect(this.a.getFrontDeck());
                 this.a.clearFrontDeck();
+                System.out.println("Player B gets Cards.");
             } else {
                 String tied = tie();
                 if(tied == "a"){
@@ -71,6 +72,7 @@ public class War
                 break;
             }
             i++;
+            System.out.println("");
         }
         if(i == 300){
             System.out.println("Tie, reached 300 iterations.");
@@ -79,6 +81,7 @@ public class War
     
     //returns a if a lost, b if b lost, ab if both lost, n to continue
     public String tie(){
+        System.out.println("War:");
         if(this.a.getAmountOfCards() < 3 && this.b.getAmountOfCards() < 3){
             return "ab";
         } else if(this.a.getAmountOfCards() < 3){
@@ -94,15 +97,17 @@ public class War
         
         System.out.println("Player A: " + this.a.getLastCardFaceInFrontDeck() + " of " + this.a.getLastCardSuitInFrontDeck());
         System.out.println("Player B: " + this.b.getLastCardFaceInFrontDeck() + " of " + this.b.getLastCardSuitInFrontDeck());
-        System.out.println("");
         
         if(this.a.getLastCardRankInFrontDeck() > this.b.getLastCardRankInFrontDeck()){
             this.a.collect(this.b.getFrontDeck());
             this.b.clearFrontDeck();
+            System.out.println("Player A gets Cards.");
         } else if(this.a.getLastCardRankInFrontDeck() < this.b.getLastCardRankInFrontDeck()){
             this.b.collect(this.a.getFrontDeck());
             this.a.clearFrontDeck();
+            System.out.println("Player B gets Cards.");
         } else {
+            System.out.println("");
             return tie();
         }
         return "n";

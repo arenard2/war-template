@@ -34,37 +34,55 @@ public class War
      * from the War flowchart you created for this game
      */
     public void runEventLoop() {
-        for(int i = 0; i < 300; i++){
+        int i = 0;
+        while(i < 300){
             this.a.dealToFrontDeck();
             this.b.dealToFrontDeck();
             
+            System.out.println("Player A: " + this.a.getLastCardFaceInFrontDeck() + " of " + this.a.getLastCardSuitInFrontDeck());
+            System.out.println("Player B: " + this.b.getLastCardFaceInFrontDeck() + " of " + this.b.getLastCardSuitInFrontDeck());
+            
             if(this.a.getLastCardRankInFrontDeck() > this.b.getLastCardRankInFrontDeck()){
-                
+                this.a.collect(this.b.getFrontDeck());
+                this.b.clearFrontDeck();
             } else if(this.a.getLastCardRankInFrontDeck() < this.b.getLastCardRankInFrontDeck()){
-                
+                this.b.collect(this.a.getFrontDeck());
+                this.a.clearFrontDeck();
             } else {
                 String tied = tie();
                 if(tied == "a"){
-                    System.out.println("Player b won!");
+                    System.out.println("Player B won!");
                     break;
-                }else if(tied == "a"){
-                    System.out.println("Player a won!");
+                }else if(tied == "b"){
+                    System.out.println("Player A won!");
                     break;
                 } else if(tied == "ab"){
-                    System.out.println("Tie!.");
+                    System.out.println("Tie!");
                     break;
                 }
             }
+            
+            if(this.a.getAmountOfCards() == 0){
+                System.out.println("Player B wins!");
+                break;
+            } else if(this.b.getAmountOfCards() == 0){
+                System.out.println("Player A wins!");
+                break;
+            }
+            i++;
+        }
+        if(i == 300){
+            System.out.println("Tie, reached 300 iterations.");
         }
     }
     
     //returns a if a lost, b if b lost, ab if both lost, n to continue
     public String tie(){
-        if(!(this.a.getAmountOfCards() > 3) && !(this.b.getAmountOfCards() > 3)){
+        if(this.a.getAmountOfCards() < 3 && this.b.getAmountOfCards() < 3){
             return "ab";
-        } else if(!(this.a.getAmountOfCards() > 3)){
+        } else if(this.a.getAmountOfCards() < 3){
             return "a";
-        } else if(!(this.a.getAmountOfCards() > 3)){
+        } else if(this.b.getAmountOfCards() < 3){
             return "b";
         }
         
@@ -72,11 +90,16 @@ public class War
             this.a.dealToFrontDeck();
             this.b.dealToFrontDeck();
         }
+        
+        System.out.println("Player A: " + this.a.getLastCardFaceInFrontDeck() + " of " + this.a.getLastCardSuitInFrontDeck());
+        System.out.println("Player B: " + this.b.getLastCardFaceInFrontDeck() + " of " + this.b.getLastCardSuitInFrontDeck());
             
         if(this.a.getLastCardRankInFrontDeck() > this.b.getLastCardRankInFrontDeck()){
-                
+            this.a.collect(this.b.getFrontDeck());
+            this.b.clearFrontDeck();
         } else if(this.a.getLastCardRankInFrontDeck() < this.b.getLastCardRankInFrontDeck()){
-                
+            this.b.collect(this.a.getFrontDeck());
+            this.a.clearFrontDeck();
         } else {
             return tie();
         }

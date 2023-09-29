@@ -49,6 +49,13 @@ public class Player
         return this.frontDeck.getLastCard().getRank();
     }
     
+    public String getLastCardFaceInFrontDeck(){
+        return this.frontDeck.getLastCard().getFace();
+    }
+    public String getLastCardSuitInFrontDeck(){
+        return this.frontDeck.getLastCard().getSuit();
+    }
+    
     public int getAmountOfCards(){
         return this.deck.getDeckSize();
     }

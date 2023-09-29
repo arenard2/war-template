@@ -41,6 +41,7 @@ public class War
             
             System.out.println("Player A: " + this.a.getLastCardFaceInFrontDeck() + " of " + this.a.getLastCardSuitInFrontDeck());
             System.out.println("Player B: " + this.b.getLastCardFaceInFrontDeck() + " of " + this.b.getLastCardSuitInFrontDeck());
+            System.out.println("");
             
             if(this.a.getLastCardRankInFrontDeck() > this.b.getLastCardRankInFrontDeck()){
                 this.a.collect(this.b.getFrontDeck());
@@ -93,7 +94,8 @@ public class War
         
         System.out.println("Player A: " + this.a.getLastCardFaceInFrontDeck() + " of " + this.a.getLastCardSuitInFrontDeck());
         System.out.println("Player B: " + this.b.getLastCardFaceInFrontDeck() + " of " + this.b.getLastCardSuitInFrontDeck());
-            
+        System.out.println("");
+        
         if(this.a.getLastCardRankInFrontDeck() > this.b.getLastCardRankInFrontDeck()){
             this.a.collect(this.b.getFrontDeck());
             this.b.clearFrontDeck();

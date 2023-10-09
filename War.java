@@ -51,6 +51,7 @@ public class War
                 this.a.clearFrontDeck();
                 System.out.println("Player B gets Cards.");
             } else {
+                System.out.println("");
                 String tied = tie();
                 if(tied == "a"){
                     System.out.println("Player B won!");
@@ -91,6 +92,8 @@ public class War
         }
         
         for(int j = 0; j < 3; j++){
+            this.a.dealToWarDeck();
+            this.b.dealToWarDeck();
             this.a.dealToFrontDeck();
             this.b.dealToFrontDeck();
         }
@@ -101,11 +104,21 @@ public class War
         if(this.a.getLastCardRankInFrontDeck() > this.b.getLastCardRankInFrontDeck()){
             this.a.collect(this.b.getFrontDeck());
             this.b.clearFrontDeck();
-            System.out.println("Player A gets Cards.");
+            System.out.println("Player A gets Cards:");
+            this.a.printWarDeck();
+            this.b.printWarDeck();
+            System.out.println("");
+            this.a.clearWarDeck();
+            this.b.clearWarDeck();
         } else if(this.a.getLastCardRankInFrontDeck() < this.b.getLastCardRankInFrontDeck()){
             this.b.collect(this.a.getFrontDeck());
             this.a.clearFrontDeck();
-            System.out.println("Player B gets Cards.");
+            System.out.println("Player B gets Cards:");
+            this.b.printWarDeck();
+            this.a.printWarDeck();
+            System.out.println("");
+            this.a.clearWarDeck();
+            this.b.clearWarDeck();
         } else {
             System.out.println("");
             return tie();

@@ -83,6 +83,10 @@ public class Deck
         return card;
     }
     
+    public Card dealCardToWarDeck() {
+        return this.cards.get(0);
+    }
+    
     /**
      * Adds the provided card to the deck
      * @param cardToAdd: Card to add to this deck

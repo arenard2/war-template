@@ -9,6 +9,7 @@ public class Player
 {
     // instance variables - replace the example below with your own
     private Deck deck;
+    private Deck warDeck;
     private Deck frontDeck;
     private String name;
 
@@ -19,11 +20,16 @@ public class Player
     {
         this.deck = _deck;
         this.frontDeck = new Deck();
+        this.warDeck = new Deck();
         this.name = _name;
     }
     
     public void dealToFrontDeck(){
         this.frontDeck.addCardToDeck(deck.dealCardFromDeck());
+    }
+    
+    public void dealToWarDeck(){
+        this.warDeck.addCardToDeck(deck.dealCardToWarDeck());
     }
     
     public void collect(Deck loserPile){
@@ -39,6 +45,10 @@ public class Player
     
     public void clearFrontDeck(){
         this.frontDeck.clearDeck();
+    }
+    
+    public void clearWarDeck(){
+        this.warDeck.clearDeck();
     }
     
     public Deck getFrontDeck(){
@@ -58,5 +68,11 @@ public class Player
     
     public int getAmountOfCards(){
         return this.deck.getDeckSize();
+    }
+    
+    public void printWarDeck(){
+        for(int i = 0; i < this.warDeck.getDeckSize(); i++){
+            System.out.println(warDeck.getCardAt(i).getFace() + " of " + warDeck.getCardAt(i).getSuit());
+        }
     }
 }
